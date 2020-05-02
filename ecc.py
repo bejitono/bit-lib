@@ -693,10 +693,3 @@ class PrivateKeyTest(TestCase):
         pk = PrivateKey(0x1cca23de92fd1862fb5b76e5f4f50eb082165e5191e116c18ed1a6b24be6a53f)
         expected = 'cNYfWuhDpbNM1JWc3c6JTrtrFVxU4AGhUKgw5f93NP2QaBqmxKkg'
         self.assertEqual(pk.wif(compressed=True, testnet=True), expected)
-
-class Tx:
-
-    @classmethod
-    def parse(cls, stream):
-        # The read method will allow us to parse on the fly as we won’t have to wait on I/O.
-        serialized_version = stream.read(4)
